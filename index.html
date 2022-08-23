@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./src/index.js" type="module"></script>
+    </head>
+    <body>
+        <hm-card withShadow>
+            <hm-card>test</hm-card>
+
+            <h1>This is a title</h1>
+
+            <hm-card>
+                <h2>Default (vertical)</h2>
+                <hm-stack>
+                    <hm-button data-text="This is a button v1" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button v2" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button v3" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button v4" onClick="() => alert('hola')"></hm-button>
+                </hm-stack>
+            </hm-card>
+            <hm-card>
+                <h2>Horizontal</h2>
+                <hm-stack dir="horizontal">
+                    <hm-button data-text="This is a button h1" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button h2" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button h3" onClick="() => alert('hola')"></hm-button>
+                    <hm-button data-text="This is a button h4" onClick="() => alert('hola')"></hm-button>
+                </hm-stack>
+            </hm-card>
+           <hm-card>
+                <h2> Form inputs </h2>
+                <hm-stack>
+                    <hm-text-input is-password="true" label="Password"></hm-text-input>
+                    <hm-text-input label="Name" placeholder="Enter your name here..."></hm-text-input>
+                </hm-stack> 
+            </hm-card>
+        </hm-card>
+    </body>
+</html>
