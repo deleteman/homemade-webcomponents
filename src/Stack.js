@@ -27,11 +27,7 @@ export default class HMStack extends CustomComponent{
         // the wrapper element
         const wrapper = document.createElement("div")
 
-
-
-      
-
-        const direction = this._attributes.dir // this.getAttribute("dir")
+        const direction = this._attributes.dir
         let elemClasses = []
 
         switch(direction) {

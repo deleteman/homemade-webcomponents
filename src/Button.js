@@ -1,6 +1,8 @@
 import * as CC from './CustomComponent.js'
+import * as EH from './EvenHandler.js'
 
 const CustomComponent = CC.default
+const EventHandler = EH.default
 
 export default class HMButton extends CustomComponent{
     static observedAttributes = [];
@@ -20,6 +22,8 @@ export default class HMButton extends CustomComponent{
                 margin: 5px;
             }
         `;
+
+        EventHandler.subscribeToEvent('show', this)
     }                 
 
    

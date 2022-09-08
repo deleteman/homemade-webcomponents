@@ -18,6 +18,20 @@ export default class HMCard extends CustomComponent{
             .hm-card.with-shadow {
                 box-shadow: 5px 10px #cbbaba
             }
+
+            .centered {
+                margin: 0 auto;
+            }
+
+            .w-80 {
+                width: 80%;
+            }
+            .w-50 {
+                width: 50%;
+            }
+            .w-70 {
+                width: 70%;
+            }
         `;
     }                 
 
@@ -31,9 +45,17 @@ export default class HMCard extends CustomComponent{
         if(this._attributes.withshadow != null) {
             elemClass.push("with-shadow")
         }
+
+        if(this._attributes.width != null) {
+            elemClass.push("w-" + this._attributes.width)
+        }
+
+        if(this._attributes.centered != null) {
+            elemClass.push('centered')
+        }
+
         elemClass.push("hm-card")
 
-        let mySlotID = Date.now()
         wrapper.innerHTML = `
         <div class="${elemClass.join(" ")}">
             <slot ></slot>

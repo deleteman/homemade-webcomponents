@@ -1,3 +1,7 @@
+import * as EH from './EvenHandler.js'
+
+const EventHandler = EH.default
+
 export default class CustomComponent extends HTMLElement {
     static ID = 0;
     constructor(){
@@ -22,6 +26,10 @@ export default class CustomComponent extends HTMLElement {
         console.log("My custom component got instantiated! (", this.compID, ")")
     }
 
+    handleEvent(event, params) {
+        console.log("The event ", event, " was triggered with params", params)
+    }
+
     /**
      * Lifecycle method, called whenever an observed property changes
      */
@@ -36,9 +44,14 @@ export default class CustomComponent extends HTMLElement {
         return null;
     }
 
-    display() {
+    display(force=false) {
+        if(force) {
+            [...this.mainComp.children]
+                .forEach(this.mainComp.removeChild.bind(this.mainComp))
+            this.isAttached = false;
+        }
         if(this.isAttached) {
-            console.log("already rendered...")
+            console.log("Already rendered...")
             return;
         }
         console.log("Displaying...", this.compName)
@@ -82,6 +95,7 @@ export default class CustomComponent extends HTMLElement {
     connectedCallback() {
         this.setUpAccessors()
         this.display()
+        EventHandler.triggerEvent('show') 
         for(let i = 0; i < this.childNodes.length; i++) {
             let child = this.childNodes[i]
             this.append(child)
